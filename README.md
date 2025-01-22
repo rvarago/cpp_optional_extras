@@ -20,9 +20,10 @@ This is a header-only library fully implemented in [`all.hpp`](include/rvarago/s
 - Include `rvarago/std_optional_extras/all.hpp`
 - Call into the functions inside the `rvarago::std_optional_extras` namespace, perhaps alias it as `namespace optx = rvarago::std_optional_extras;`
 
-### filter(optional<t>, T -> bool) -> optional<T>
+### Functions
 
-Given an optional and a unary predicate, return input optional when it's engaged with a value that satisfies the predicate, otherwise returns none.
+- `contains(optional<T>, T) -> bool`
+- `filter(optional<T>, T -> bool) -> optional<T>`
 
 ## Contributing
 

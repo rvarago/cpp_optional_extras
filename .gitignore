@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+.envrc
+.direnv
+.cache
+build

@@ -1,5 +1,5 @@
 {
-  description = "A handful of utilities I wish optional<T> had";
+  description = "A handful of C++ utilities I wish optional<T> had";
 
   inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";

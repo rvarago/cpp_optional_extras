@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.21)
 
 project(
   optional_extras
-  DESCRIPTION "A handful of utilities I wish optional<T> had"
+  DESCRIPTION "A handful of C++ utilities I wish optional<T> had"
   LANGUAGES CXX)
 add_library(${PROJECT_NAME} INTERFACE)
 

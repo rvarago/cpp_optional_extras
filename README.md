@@ -1,6 +1,6 @@
 # cpp_optional_extras
 
-A handful of utilities I wish [`optional<T>`](https://en.cppreference.com/w/cpp/utility/optional) had.
+A handful of C++ utilities I wish [`optional<T>`](https://en.cppreference.com/w/cpp/utility/optional) had.
 
 ## Purpose
 

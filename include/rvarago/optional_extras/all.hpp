@@ -1,7 +1,7 @@
 #include <concepts>
 #include <optional>
 
-namespace rvarago::std_optional_extras {
+namespace rvarago::optional_extras {
 
 // `filter(opt, pred)` is `opt` when `opt` is engaged and its value
 // satisfies `pred`, otherwise is none.
@@ -25,4 +25,4 @@ constexpr auto contains(std::optional<T> const &opt, T const &value) noexcept
       .has_value();
 }
 
-} // namespace rvarago::std_optional_extras
+} // namespace rvarago::optional_extras

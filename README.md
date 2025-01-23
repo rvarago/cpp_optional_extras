@@ -1,6 +1,6 @@
-# std_optional_extras
+# cpp_optional_extras
 
-A handful of utilities I wish [`std::optional<T>`](https://en.cppreference.com/w/cpp/utility/optional) had.
+A handful of utilities I wish [`optional<T>`](https://en.cppreference.com/w/cpp/utility/optional) had.
 
 ## Purpose
 
@@ -14,11 +14,11 @@ C++20
 
 ## Usage
 
-This is a header-only library fully implemented in [`all.hpp`](include/rvarago/std_optional_extras/all.hpp).
+This is a header-only library fully implemented in [`all.hpp`](include/rvarago/optional_extras/all.hpp).
 
-- (Optional) Link against the INTERFACE `rvarago::std_optional_extras` target in your CMake build.
-- Include `rvarago/std_optional_extras/all.hpp`
-- Call into the functions inside the `rvarago::std_optional_extras` namespace, perhaps alias it as `namespace optx = rvarago::std_optional_extras;`
+- (Optional) Link against the INTERFACE `rvarago::optional_extras` target in your CMake build.
+- Include `rvarago/optional_extras/all.hpp`
+- Call into the functions inside the `rvarago::optional_extras` namespace, perhaps alias it as `namespace optx = rvarago::optional_extras;`
 
 ### Functions
 

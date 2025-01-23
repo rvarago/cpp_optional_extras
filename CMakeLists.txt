@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.21)
 
 project(
-  std_optional_extras
-  DESCRIPTION "A handful of utilities I wish std::optional had"
+  optional_extras
+  DESCRIPTION "A handful of utilities I wish optional<T> had"
   LANGUAGES CXX)
 add_library(${PROJECT_NAME} INTERFACE)
 
-option(RVARAGO_STD_OPTIONAL_EXTRAS_WITH_TESTS "All correctness checks" OFF)
+option(RVARAGO_OPTIONAL_EXTRAS_WITH_TESTS "All correctness checks" OFF)
 
 add_library(rvarago::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
@@ -32,6 +32,6 @@ export(EXPORT ${PROJECT_NAME}Config NAMESPACE rvarago::)
 
 export(PACKAGE ${PROJECT_NAME})
 
-if(RVARAGO_STD_OPTIONAL_EXTRAS_WITH_TESTS)
+if(RVARAGO_OPTIONAL_EXTRAS_WITH_TESTS)
   add_subdirectory(test)
 endif()

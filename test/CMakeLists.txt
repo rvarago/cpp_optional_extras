@@ -1,4 +1,4 @@
-project(std_optional_extras_tests LANGUAGES CXX)
+project(optional_extras_tests LANGUAGES CXX)
 
 include(CTest)
 
@@ -20,7 +20,7 @@ target_compile_options(
 
 find_package(Catch2 REQUIRED)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE rvarago::std_optional_extras
+target_link_libraries(${PROJECT_NAME} PRIVATE rvarago::optional_extras
                                               Catch2::Catch2WithMain)
 
 add_test(${PROJECT_NAME} ${PROJECT_NAME})

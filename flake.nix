@@ -1,5 +1,5 @@
 {
-  description = "A handful of utilities I wish std::optional had";
+  description = "A handful of utilities I wish optional<T> had";
 
   inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
@@ -21,7 +21,7 @@
           prettier --check .github/workflows/*.yml
           cmake-format --check CMakeLists.txt test/CMakeLists.txt
           cmake-lint CMakeLists.txt test/CMakeLists.txt
-          cmake -DRVARAGO_STD_OPTIONAL_EXTRAS_WITH_TESTS=ON -S . -B build && cmake --build build --target check_all
+          cmake -DRVARAGO_OPTIONAL_EXTRAS_WITH_TESTS=ON -S . -B build && cmake --build build --target check_all
         '';
       in
       {

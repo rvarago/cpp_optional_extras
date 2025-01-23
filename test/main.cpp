@@ -1,10 +1,10 @@
 #include <catch2/catch_test_macros.hpp>
 
-#include <rvarago/std_optional_extras/all.hpp>
-
 #include <optional>
 
-namespace optx = rvarago::std_optional_extras;
+#include <rvarago/optional_extras/all.hpp>
+
+namespace optx = rvarago::optional_extras;
 
 template <typename T> constexpr std::optional<T> none;
 

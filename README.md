@@ -22,8 +22,9 @@ This is a header-only library fully implemented in [`all.hpp`](include/rvarago/o
 
 ### Functions
 
-- `contains(optional<T>, T) -> bool`
 - `filter(optional<T>, T -> bool) -> optional<T>`
+- `exists(optional<T>, T -> bool) -> bool`
+- `contains(optional<T>, T) -> bool`
 - `zip_with(optional<L>, optional<R>, (L, R) -> O) -> optional<O>`
 - `zip(optional<L>, optional<R>) -> optional<pair<L, R>>`
 

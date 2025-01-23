@@ -17,13 +17,20 @@ constexpr auto filter(std::optional<T> opt,
   }
 }
 
+// `exists(opt, pred)` is `true` when `opt` is engaged and its
+// value satisfies `pred`, otherwise is `false`
+template <typename T>
+constexpr auto exists(std::optional<T> const &opt,
+                      std::predicate<T> auto pred) noexcept -> bool {
+  return static_cast<bool>(filter(opt, pred));
+}
+
 // `contains(opt, value)` is `true` when `opt` is engaged and its value
 // equals `value`, otherwise is `false`.
 template <typename T>
 constexpr auto contains(std::optional<T> const &opt, T const &value) noexcept
     -> bool {
-  return static_cast<bool>(
-      filter(opt, [&value](auto const &v) { return v == value; }));
+  return exists(opt, [&value](auto const &v) { return v == value; });
 }
 
 // `zip_with(opt_lhs, opt_rhs, merge)` is an optional holding the outcome

@@ -11,7 +11,9 @@ using std::optional;
 
 template <typename T> constexpr optional<T> none;
 
-TEST_CASE("When engaged with a value satisfying a predicate", "[filter]") {
+TEST_CASE(
+    "When engaged with a value satisfying a predicate passes input through",
+    "[filter]") {
   static constexpr auto is_even = [](int const x) -> bool {
     return (x % 2) == 0;
   };
@@ -19,6 +21,16 @@ TEST_CASE("When engaged with a value satisfying a predicate", "[filter]") {
   STATIC_REQUIRE(optx::filter(none<int>, is_even) == none<int>);
   STATIC_REQUIRE(optx::filter(optional{1}, is_even) == none<int>);
   STATIC_REQUIRE(optx::filter(optional{42}, is_even) == optional{42});
+}
+
+TEST_CASE("When engaged with a value satisfying a predicate", "[exists]") {
+  static constexpr auto is_even = [](int const x) -> bool {
+    return (x % 2) == 0;
+  };
+
+  STATIC_REQUIRE(optx::exists(none<int>, is_even) == false);
+  STATIC_REQUIRE(optx::exists(optional{1}, is_even) == false);
+  STATIC_REQUIRE(optx::exists(optional{42}, is_even) == true);
 }
 
 TEST_CASE("When engaged with a value equal to the argument", "[contains]") {

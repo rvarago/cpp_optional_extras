@@ -1,12 +1,12 @@
 # cpp_optional_extras
 
-A handful of C++ utilities I wish [`optional<T>`](https://en.cppreference.com/w/cpp/utility/optional) had.
+A handful of C++ utilities I wish [`std::optional<T>`](https://en.cppreference.com/w/cpp/utility/optional) had.
 
 ## Purpose
 
-C++17 brought us `std::optional<T>`, then C++20 enhanced it with a couple of member-functions to safely express common transformations.
+C++17 brought us `std::optional<T>`, then C++20 enhanced it with a couple of member-functions to safely express common data transformations.
 
-This library takes the next step and provides a handful of additional functions to make working with `optional<T>` even more ergonomic.
+This library draws inspiration from other languages ​​and provides a handful of additional functions to make working with `std::optional<T>` even more ergonomic and less error-prone by encapsulating common patterns into reusable algorithms around correct access to the underlying `T`.
 
 ## Requirements
 

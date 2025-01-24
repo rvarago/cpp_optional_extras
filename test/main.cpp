@@ -9,7 +9,7 @@ namespace optx = rvarago::optional_extras;
 
 using std::optional;
 
-template <typename T> constexpr optional<T> none;
+template <typename T> constexpr optional<T> none{std::nullopt};
 
 TEST_CASE(
     "When engaged with a value satisfying a predicate passes input through",

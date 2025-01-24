@@ -62,3 +62,16 @@ TEST_CASE("When both are engaged then pair them", "[zip]") {
   STATIC_REQUIRE(optx::zip(optional{false}, optional{42}) ==
                  optional{std::pair{false, 42}});
 }
+
+TEST_CASE(
+    "When both are engaged append them or return the first engaged or none",
+    "[append]") {
+  constexpr auto mul = [](int const lhs, int const rhs) -> int {
+    return lhs * rhs;
+  };
+
+  STATIC_REQUIRE(optx::append(none<int>, none<int>, mul) == none<int>);
+  STATIC_REQUIRE(optx::append(none<int>, optional{3}, mul) == optional{3});
+  STATIC_REQUIRE(optx::append(optional{2}, none<int>, mul) == optional{2});
+  STATIC_REQUIRE(optx::append(optional{2}, optional{3}, mul) == optional{6});
+}

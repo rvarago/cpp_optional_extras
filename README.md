@@ -27,6 +27,7 @@ This is a header-only library whose algorithms are in [`algorithm.hpp`](include/
 - `contains(optional<T>, T) -> bool`
 - `zip_with(optional<L>, optional<R>, (L, R) -> O) -> optional<O>`
 - `zip(optional<L>, optional<R>) -> optional<pair<L, R>>`
+- `append(optional<T>, optional<T>, (T, T) -> T) -> optional<T>`
 
 ## Contributing
 

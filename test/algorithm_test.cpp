@@ -5,7 +5,7 @@
 
 #include <rvarago/optional_extras/algorithm.hpp>
 
-namespace optx = rvarago::optional_extras;
+namespace optx = rvarago::optional_extras::algorithm;
 
 using std::optional;
 

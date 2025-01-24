@@ -4,7 +4,7 @@
 #include <type_traits>
 #include <utility>
 
-namespace rvarago::optional_extras {
+namespace rvarago::optional_extras::algorithm {
 
 // `filter(opt, pred)` is `opt` when `opt` is engaged and its value
 // satisfies `pred`, otherwise is none.
@@ -85,4 +85,4 @@ append(std::optional<T> opt_lhs, std::optional<T> opt_rhs,
   }
 }
 
-} // namespace rvarago::optional_extras
+} // namespace rvarago::optional_extras::algorithm

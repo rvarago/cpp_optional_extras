@@ -18,7 +18,7 @@ This is a header-only library whose algorithms are in [`algorithm.hpp`](include/
 
 - (Optional) Link against the INTERFACE `rvarago::optional_extras` target in your CMake build.
 - Include `rvarago/optional_extras/algorithm.hpp`
-- Call into the functions inside the `rvarago::optional_extras` namespace, perhaps alias it as `namespace optx = rvarago::optional_extras;`
+- Call into the functions inside the `rvarago::optional_extras::algorithm` namespace, perhaps alias it as `namespace optx = rvarago::optional_extras::algorithm;`
 
 ### Functions
 

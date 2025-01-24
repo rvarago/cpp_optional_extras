@@ -14,10 +14,10 @@ C++20
 
 ## Usage
 
-This is a header-only library fully implemented in [`all.hpp`](include/rvarago/optional_extras/all.hpp).
+This is a header-only library whose algorithms are in [`algorithm.hpp`](include/rvarago/optional_extras/algorithm.hpp).
 
 - (Optional) Link against the INTERFACE `rvarago::optional_extras` target in your CMake build.
-- Include `rvarago/optional_extras/all.hpp`
+- Include `rvarago/optional_extras/algorithm.hpp`
 - Call into the functions inside the `rvarago::optional_extras` namespace, perhaps alias it as `namespace optx = rvarago::optional_extras;`
 
 ### Functions

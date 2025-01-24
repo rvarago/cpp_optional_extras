@@ -3,7 +3,7 @@
 #include <optional>
 #include <utility>
 
-#include <rvarago/optional_extras/all.hpp>
+#include <rvarago/optional_extras/algorithm.hpp>
 
 namespace optx = rvarago::optional_extras;
 

@@ -4,7 +4,7 @@ include(CTest)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} algorithm_test.cpp)
 
 target_compile_options(
   ${PROJECT_NAME}

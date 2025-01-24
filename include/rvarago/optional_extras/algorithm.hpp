@@ -37,16 +37,16 @@ constexpr auto contains(std::optional<T> const &opt, T const &value) noexcept
 // `zip_with(opt_lhs, opt_rhs, merge)` is an optional holding the outcome
 // of applying `merge` to the values holded in `opt_lhs` and `opt_rhs`
 // when both are engaged, otherwise is none.
-template <typename L, typename R, std::regular_invocable<L, R> BinaryOperator>
+template <typename L, typename R, std::regular_invocable<L, R> BinaryFunction>
 constexpr auto zip_with(
     std::optional<L> opt_lhs, std::optional<R> opt_rhs,
-    BinaryOperator &&
+    BinaryFunction &&
         merge) noexcept(std::is_nothrow_move_constructible_v<L> &&
                         std::is_nothrow_move_constructible_v<R> &&
-                        std::is_nothrow_invocable_v<BinaryOperator, L &&, R &&>)
-    -> std::optional<std::invoke_result_t<BinaryOperator, L &&, R &&>> {
+                        std::is_nothrow_invocable_v<BinaryFunction, L &&, R &&>)
+    -> std::optional<std::invoke_result_t<BinaryFunction, L &&, R &&>> {
   if (opt_lhs && opt_rhs) {
-    return std::optional{std::invoke(std::forward<BinaryOperator>(merge),
+    return std::optional{std::invoke(std::forward<BinaryFunction>(merge),
                                      std::move(*opt_lhs), std::move(*opt_rhs))};
   } else {
     return std::nullopt;

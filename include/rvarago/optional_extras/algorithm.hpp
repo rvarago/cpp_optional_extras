@@ -105,15 +105,14 @@ append(std::optional<T> opt_lhs, std::optional<T> opt_rhs,
 
 template <typename T, std::regular_invocable<> NullaryFunction,
           std::regular_invocable<T> UnaryFunction>
-  requires std::same_as<std::invoke_result_t<NullaryFunction>,
-                        std::invoke_result_t<UnaryFunction, T &&>>
 constexpr auto fold(
     std::optional<T> opt, NullaryFunction &&when_empty,
     UnaryFunction &&
         when_engaged) noexcept(std::is_nothrow_move_constructible_v<T> &&
                                std::is_nothrow_invocable_v<NullaryFunction> &&
                                std::is_nothrow_invocable_v<UnaryFunction, T &&>)
-    -> std::invoke_result_t<NullaryFunction> {
+    -> std::common_type_t<std::invoke_result_t<NullaryFunction>,
+                          std::invoke_result_t<UnaryFunction, T &&>> {
   if (opt) {
     return std::invoke(std::forward<UnaryFunction>(when_engaged),
                        std::move(*opt));

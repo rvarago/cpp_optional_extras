@@ -23,6 +23,17 @@ find_package(Catch2 REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE rvarago::optional_extras
                                               Catch2::Catch2WithMain)
 
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
+  set(SANITIZERS "-fsanitize=address -fsanitize=undefined")
+
+  target_compile_options(${PROJECT_NAME} PRIVATE ${SANITIZSERS})
+  target_link_libraries(${PROJECT_NAME} PRIVATE ${SANITIZERS})
+
+  if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(${PROJECT_NAME} PRIVATE "-fno-omit-frame-pointer")
+  endif()
+endif()
+
 add_test(${PROJECT_NAME} ${PROJECT_NAME})
 
 file(GLOB_RECURSE ALL_CPP_FILES ${CMAKE_SOURCE_DIR}/include/*.hpp

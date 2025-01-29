@@ -62,6 +62,13 @@ TEST_CASE("When both are engaged then pair them", "[zip]") {
                  optional{pair{false, 42}});
 }
 
+TEST_CASE("When both are engaged then un-pair them", "[unzip]") {
+  STATIC_REQUIRE(optx::unzip(none<pair<bool, int>>) ==
+                 pair{none<bool>, none<int>});
+  STATIC_REQUIRE(optx::unzip(optional{pair{false, 42}}) ==
+                 pair{optional{false}, optional{42}});
+}
+
 TEST_CASE(
     "When both are engaged append them or return the first engaged or none",
     "[append]") {

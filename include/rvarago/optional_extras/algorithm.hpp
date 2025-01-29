@@ -63,6 +63,22 @@ constexpr auto zip(std::optional<L> opt_lhs, std::optional<R> opt_rhs) noexcept(
   return zip_with(std::move(opt_lhs), std::move(opt_rhs), std::make_pair<L, R>);
 }
 
+// `unzip(pair{opt_lhs, opt_rhs})` is a pair of optionals holding
+// the values in `opt_lhs` and `opt_rhs`
+// when both are engaged, otherwise is none.
+template <typename L, typename R>
+constexpr auto unzip(std::optional<std::pair<L, R>> opt_pair) noexcept(
+    std::is_nothrow_move_constructible_v<L> &&
+    std::is_nothrow_move_constructible_v<R>)
+    -> std::pair<std::optional<L>, std::optional<R>> {
+  if (opt_pair) {
+    return std::make_pair(std::move(opt_pair->first),
+                          std::move(opt_pair->second));
+  } else {
+    return std::make_pair(std::nullopt, std::nullopt);
+  }
+}
+
 // `append(opt_lhs, opt_rhs, plus)` is an optional holding the outcome
 // of applying `plus` to the values holded in `opt_lhs` and `opt_rhs`
 // when both are engaged, otherwise is `opt_lhs` when that's engaged,

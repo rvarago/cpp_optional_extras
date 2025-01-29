@@ -103,6 +103,9 @@ append(std::optional<T> opt_lhs, std::optional<T> opt_rhs,
   }
 }
 
+// `fold(opt, when_empty, when_engaged)` is the result
+// of applying `when_engaged` to the value holded in `opt` when engaged,
+// otherwise is the return of `when_empty`.
 template <typename T, std::regular_invocable<> NullaryFunction,
           std::regular_invocable<T> UnaryFunction>
   requires std::same_as<std::invoke_result_t<NullaryFunction>,

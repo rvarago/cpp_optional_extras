@@ -21,7 +21,7 @@
           prettier --check .github/workflows/*.yml
           cmake-format --check CMakeLists.txt test/CMakeLists.txt
           cmake-lint CMakeLists.txt test/CMakeLists.txt
-          cmake -DRVARAGO_OPTIONAL_EXTRAS_WITH_TESTS=ON -S . -B build && cmake --build build --target check_all
+          cmake -DCMAKE_BUILD_TYPE=Debug -DRVARAGO_OPTIONAL_EXTRAS_WITH_TESTS=ON -S . -B build && cmake --build build --target check_all
         '';
       in
       {

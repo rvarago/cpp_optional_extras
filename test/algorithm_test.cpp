@@ -8,6 +8,7 @@
 namespace optx = rvarago::optional_extras::algorithm;
 
 using std::optional;
+using std::pair;
 
 template <typename T> constexpr optional<T> none{std::nullopt};
 
@@ -53,14 +54,12 @@ TEST_CASE("When both are engaged then merge them", "[zip_with]") {
 }
 
 TEST_CASE("When both are engaged then pair them", "[zip]") {
-  STATIC_REQUIRE(optx::zip(none<bool>, none<int>) ==
-                 none<std::pair<bool, int>>);
+  STATIC_REQUIRE(optx::zip(none<bool>, none<int>) == none<pair<bool, int>>);
   STATIC_REQUIRE(optx::zip(optional{false}, none<int>) ==
-                 none<std::pair<bool, int>>);
-  STATIC_REQUIRE(optx::zip(none<bool>, optional{42}) ==
-                 none<std::pair<bool, int>>);
+                 none<pair<bool, int>>);
+  STATIC_REQUIRE(optx::zip(none<bool>, optional{42}) == none<pair<bool, int>>);
   STATIC_REQUIRE(optx::zip(optional{false}, optional{42}) ==
-                 optional{std::pair{false, 42}});
+                 optional{pair{false, 42}});
 }
 
 TEST_CASE(

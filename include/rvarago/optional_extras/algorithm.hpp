@@ -8,10 +8,11 @@ namespace rvarago::optional_extras::algorithm {
 
 // `filter(opt, pred)` is `opt` when `opt` is engaged and its value
 // satisfies `pred`, otherwise is none.
-template <typename T, std::predicate<T const &> Predicate>
-constexpr auto filter(std::optional<T> opt, Predicate &&pred) noexcept(
-    std::is_nothrow_invocable_v<Predicate, T const &>) -> std::optional<T> {
-  if (opt && std::invoke(std::forward<Predicate>(pred), *opt)) {
+template <typename T, std::predicate<T const &> UnaryPredicate>
+constexpr auto filter(std::optional<T> opt, UnaryPredicate &&pred) noexcept(
+    std::is_nothrow_invocable_v<UnaryPredicate, T const &>)
+    -> std::optional<T> {
+  if (opt && std::invoke(std::forward<UnaryPredicate>(pred), *opt)) {
     return opt;
   } else {
     return std::nullopt;
@@ -20,10 +21,11 @@ constexpr auto filter(std::optional<T> opt, Predicate &&pred) noexcept(
 
 // `exists(opt, pred)` is `true` when `opt` is engaged and its
 // value satisfies `pred`, otherwise is `false`
-template <typename T, std::predicate<T const &> Predicate>
-constexpr auto exists(std::optional<T> const &opt, Predicate &&pred) noexcept(
-    std::is_nothrow_invocable_v<Predicate, T const &>) -> bool {
-  return opt && std::invoke(std::forward<Predicate>(pred), *opt);
+template <typename T, std::predicate<T const &> UnaryPredicate>
+constexpr auto
+exists(std::optional<T> const &opt, UnaryPredicate &&pred) noexcept(
+    std::is_nothrow_invocable_v<UnaryPredicate, T const &>) -> bool {
+  return opt && std::invoke(std::forward<UnaryPredicate>(pred), *opt);
 }
 
 // `contains(opt, value)` is `true` when `opt` is engaged and its value

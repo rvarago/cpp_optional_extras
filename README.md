@@ -29,6 +29,7 @@ This is a header-only library whose algorithms are in [`algorithm.hpp`](include/
 - `zip(optional<L>, optional<R>) -> optional<pair<L, R>>`
 - `unzip(optional<pair<L, R>) -> pair<optional<L>, optional<R>>`
 - `append(optional<T>, optional<T>, (T, T) -> T) -> optional<T>`
+- `fold(optional<T>, () -> R, T -> R) -> R`
 
 ## Contributing
 

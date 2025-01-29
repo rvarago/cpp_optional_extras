@@ -81,3 +81,15 @@ TEST_CASE(
   STATIC_REQUIRE(optx::append(optional{2}, none<int>, mul) == optional{2});
   STATIC_REQUIRE(optx::append(optional{2}, optional{3}, mul) == optional{6});
 }
+
+template <typename R, typename... Args> constexpr auto bail(Args &&...) -> R {
+  throw "must not invoke";
+};
+
+TEST_CASE("When engaged transform it otherwise invoke default", "[fold]") {
+  constexpr auto zero = []() -> int { return 0; };
+  constexpr auto inc = [](int const x) -> int { return x + 1; };
+
+  STATIC_REQUIRE(optx::fold(none<int>, zero, bail<int, int>) == 0);
+  STATIC_REQUIRE(optx::fold(optional{1}, bail<int>, inc) == 2);
+}

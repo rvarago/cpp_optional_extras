@@ -40,6 +40,9 @@ struct person {
 
 These are just two of the available algorithms!
 
+For a terser syntax for chaining multiple operations, there's an `optional_wrapper<T>` in [`wrapper.hpp`](./include/rvarago/optional_extras/wrapper.hpp) that lifts an `std::optional<T>`
+and with algorithms as member-functions. So, an inside-out `op_2(op_1(lhs, rhs), func)` is equivalent to the left-to-right `lift(lhs).op_1(rhs).op_2(func).get`.
+
 ### Functions
 
 - `filter(optional<T>, T -> bool) -> optional<T>`

@@ -92,4 +92,8 @@ TEST_CASE("When engaged transform it otherwise invoke default", "[fold]") {
 
   STATIC_REQUIRE(optx::fold(none<int>, zero, bail<int, int>) == 0);
   STATIC_REQUIRE(optx::fold(optional{1}, bail<int>, inc) == 2);
+
+  // implicit return-type conversion.
+  STATIC_REQUIRE(
+      optx::fold(none<int>, [] { return true; }, bail<int, int>) == 1);
 }
